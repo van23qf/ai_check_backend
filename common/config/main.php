@@ -34,12 +34,12 @@ return [
             'cacheKey'      => 'config.cache',                       // Key identifying the cache value (Required only if cacheId is set)
             'cacheDuration' => 10                                   // Cache Expiration time in seconds. 0 means never expire. Defaults to 0 (Optional)
         ],
-        'redis' => [
-            'class' => 'yii\redis\Connection',
-            'hostname' => '127.0.0.1',
-            'port' => 6379,
-            'database' => 13,
-        ],
+//        'redis' => [
+//            'class' => 'yii\redis\Connection',
+//            'hostname' => '127.0.0.1',
+//            'port' => 6379,
+//            'database' => 13,
+//        ],
         'session' => [
             'class' => 'yii\web\Session',
             'timeout' => 24 * 3600,
