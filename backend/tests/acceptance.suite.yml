@@ -1,0 +1,18 @@
+suite_namespace: backend\tests\acceptance
+actor: AcceptanceTester
+modules:
+    enabled:
+        - WebDriver:
+            url: http://localhost:8080/
+            browser: chrome
+        - Yii2:
+            part: init
+            entryScript: index-test.php
+            cleanup: false
+extensions:
+    enabled:
+        - Codeception\Extension\RunProcess:
+            # 0: java -Dwebdriver.chrome.driver=bin/chromedriver -jar ./bin/selenium-server-standalone-3.9.1.jar
+            # 1: php ./yii serve localhost -p 8080 -t ./backend/web/ --interactive 0
+            # sleep: 3 # wait 5 seconds for processes to boot
+        - Codeception\Extension\Logger:

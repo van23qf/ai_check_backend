@@ -1,0 +1,33 @@
+{
+  "name": "lonestonewy/omnipay-alipay",
+  "type": "library",
+  "description": "增加了批量付款到支付宝账户和即时到帐批量退款接口的Omnipay支付宝接口",
+  "keywords": [
+    "alipay",
+    "gateway",
+    "merchant",
+    "omnipay",
+    "pay",
+    "payment",
+    "purchase"
+  ],
+  "homepage": "https://github.com/lonestonewy/omnipay-alipay",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "lonestone",
+      "email": "lonestone@qq.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\Alipay\\": "src/"
+    }
+  },
+  "require": {
+    "omnipay/common": "~2.0"
+  },
+  "require-dev": {
+    "omnipay/tests": "~2.0"
+  }
+}

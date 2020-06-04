@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+cd ./wechat
+git add . 
+git ci -m build 
+git push 
+../yii deploy 1 0
