@@ -22,7 +22,7 @@ $this->registerCssFile('https://cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons
 
         <div class="info-box-content">
           <span class="info-box-text">托管微信号</span>
-          <span class="info-box-number"><?=$wechat_config_count?><small>个</small></span>
+          <span class="info-box-number"><?=0?><small>个</small></span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -35,7 +35,7 @@ $this->registerCssFile('https://cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons
 
         <div class="info-box-content">
           <span class="info-box-text">粉丝总数</span>
-          <span class="info-box-number"><?=$wechat_user_count?><small>人</small></span>
+          <span class="info-box-number"><?=0?><small>人</small></span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -52,7 +52,7 @@ $this->registerCssFile('https://cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons
 
         <div class="info-box-content">
           <span class="info-box-text">发送模板消息</span>
-          <span class="info-box-number"><?=$wechat_notification_count?><small>条</small></span>
+          <span class="info-box-number"><?=0?><small>条</small></span>
         </div>
         <!-- /.info-box-content -->
       </div>
@@ -65,7 +65,7 @@ $this->registerCssFile('https://cdn.jsdelivr.net/npm/ionicons@2.0.1/css/ionicons
 
         <div class="info-box-content">
           <span class="info-box-text">发送短信息</span>
-          <span class="info-box-number"><?=$sms_count?><small>条</small></span>
+          <span class="info-box-number"><?=0?><small>条</small></span>
         </div>
         <!-- /.info-box-content -->
       </div>
