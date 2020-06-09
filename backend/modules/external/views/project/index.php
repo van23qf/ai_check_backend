@@ -57,6 +57,7 @@ $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                   'id',
+                  'app_name',
                   'project_name',
                   'secret',
 

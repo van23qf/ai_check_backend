@@ -13,6 +13,7 @@ use yii\helpers\VarDumper;
  * @property string $project_name
  * @property string $secret
  * @property string $api_access
+ * @property string $app_name
  */
 class Project extends \yii\db\ActiveRecord
 {
@@ -33,10 +34,11 @@ class Project extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['project_name', 'secret'], 'required'],
+            [['project_name', 'secret', 'app_name'], 'required'],
             [['project_name', 'secret'], 'string', 'max' => 32],
+            [['app_name'], 'string', 'max' => 50],
             [['api_access'], 'string', 'max' => 128],
-            [['project_name', 'secret', 'api_access'], 'safe'],
+            [['project_name', 'secret', 'api_access', 'app_name'], 'safe'],
         ];
     }
 
@@ -49,6 +51,7 @@ class Project extends \yii\db\ActiveRecord
             'id' => 'ID',
             'project_name' => 'APPID',
             'secret' => 'APP_SECRET',
+            'app_name' => '应用名称',
             'api_access' => 'API权限',
         ];
     }
@@ -74,6 +77,7 @@ class Project extends \yii\db\ActiveRecord
 
         $query->andFilterWhere([
             'project_name' => $this->project_name,
+            'app_name' => $this->app_name,
         ]);
 
         return $dataProvider;

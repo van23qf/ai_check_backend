@@ -18,6 +18,7 @@ use yii\bootstrap\ActiveForm;
             'labelOptions'=>['class'=>'col-sm-2 control-label'],
         ],
     ]); ?>
+    <?= $form->field($model, 'app_name')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'project_name')->textInput(['maxlength' => true]) ?>
     <?= $form->field($model, 'secret')->textInput(['maxlength' => true]) ?>
     <div class="box-footer">
