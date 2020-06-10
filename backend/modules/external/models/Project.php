@@ -65,7 +65,7 @@ class Project extends \yii\db\ActiveRecord
      */
     public function search($params)
     {
-        $query = \backend\modules\external\models\Project::find();
+        $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

@@ -100,3 +100,19 @@ $(function() {
         showInputs: false
     });
 });
+//初始化日期段选择控件
+var initDateRangePicker = function(startSel, endSel) {
+    $(startSel).daterangepicker({
+        format: 'YYYY-MM-DD',
+        showDropdowns: true,
+        startDate: $(startSel).val(),
+        endDate: $(endSel).val()
+    }).on('apply', function(e, t) {
+        $(this).val(t.startDate.format(t.format))
+        $(endSel).val(t.endDate.format(t.format))
+    });
+
+    $(endSel).click(function(event) {
+        $(startSel).click();
+    });
+}

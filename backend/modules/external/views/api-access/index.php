@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
-use backend\modules\external\models\Project;
+use backend\modules\external\models\ApiAccess;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\modules\external\models\Project */
+/* @var $searchModel backend\modules\external\models\ApiAccess */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Project::$modelName.'管理';
+$this->title = ApiAccess::$modelName.'管理';
 $this->params['breadcrumbs'][] = $this->title;
 
 $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 20);
@@ -23,7 +23,7 @@ $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 
                 <!-- Check all button -->
                 <!-- <button type="button" class="btn btn-default btn-sm checkbox-toggle"><i class="fa fa-square-o"></i></button> -->
                 <div class="btn-group">
-                    <?= Html::a('<i class="fa fa-pencil-square-o"></i>', ['create'], ['class' => 'btn btn-primary']) ?>
+                    <?= Html::a('<i class="fa fa-pencil-square-o"></i>', ['create?project_id='.$_GET['project_id']], ['class' => 'btn btn-primary']) ?>
                 </div>
                 <!-- /.btn-group -->
                 <a type="button" class="btn btn-default" href="javascript:window.location.reload()"><i class="fa fa-refresh"></i></a>
@@ -57,20 +57,17 @@ $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                     'id',
-                    'app_name',
-                    'project_name',
-                    'secret',
+                    ['label'=>'APPID',  'value' => 'project.project_name' ],
+                    ['label'=>'应用名称',  'value' => function($model) {return $model->project->app_name;} ],
+                    ['label'=>'接口名称',  'value' => function($model){
+                        return ApiAccess::$apiTags[$model->api_tag];
+                    }],
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'header'=>'操作',
                         'headerOptions'=>['style'=>'width:150px'],
                         'buttonOptions'=>['class'=>'btn btn-default btn-sm'],
-                        'template'  =>  '{view} {update} {delete} {access}',
-                        'buttons'   =>  [
-                            'access' => function ($url, $model, $key) {
-                                return Html::a('<span class="glyphicon glyphicon-hand-left"></span>', '/external/api-access/index?project_id='.$model->id, ['title' => '接口权限','class'=>'btn btn-default btn-sm'] );
-                            },
-                        ],
+                        'template'  =>  '{update} {delete}',
                     ],
             ],
         ]); ?>
