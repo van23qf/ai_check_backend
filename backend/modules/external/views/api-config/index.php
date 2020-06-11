@@ -3,13 +3,13 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\GridView;
-use backend\modules\external\models\ApiAccess;
+use backend\modules\external\models\ApiConfig;
 
 /* @var $this yii\web\View */
-/* @var $searchModel backend\modules\external\models\ApiAccess */
+/* @var $searchModel backend\modules\external\models\ApiConfig */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = ApiAccess::$modelName.'管理';
+$this->title = ApiConfig::$modelName.'管理';
 $this->params['breadcrumbs'][] = $this->title;
 
 $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 20);
@@ -57,11 +57,14 @@ $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 
                 'columns' => [
                     ['class' => 'yii\grid\SerialColumn'],
                     'id',
-                    ['label'=>'APPID',  'value' => 'project.project_name' ],
-                    ['label'=>'应用名称',  'value' => function($model) {return $model->project->app_name;} ],
+                    ['label'=>'项目ID',  'value' => 'projectone.project_name' ],
+                    ['label'=>'应用名称',  'value' => 'projectone.app_name' ],
                     ['label'=>'接口名称',  'value' => function($model){
-                        return \backend\modules\external\models\ApiConfig::$apiTags[$model->api_tag];
+                        return ApiConfig::$apiTags[$model->api_name];
                     }],
+                    'appid',
+                    'appsecret',
+                    'appcode',
                     [
                         'class' => 'yii\grid\ActionColumn',
                         'header'=>'操作',

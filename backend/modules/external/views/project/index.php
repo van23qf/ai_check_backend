@@ -65,10 +65,13 @@ $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 
                         'header'=>'操作',
                         'headerOptions'=>['style'=>'width:150px'],
                         'buttonOptions'=>['class'=>'btn btn-default btn-sm'],
-                        'template'  =>  '{view} {update} {delete} {access}',
+                        'template'  =>  '{view} {update} {delete} {access} {api_config}',
                         'buttons'   =>  [
                             'access' => function ($url, $model, $key) {
                                 return Html::a('<span class="glyphicon glyphicon-hand-left"></span>', '/external/api-access/index?project_id='.$model->id, ['title' => '接口权限','class'=>'btn btn-default btn-sm'] );
+                            },
+                            'api_config' => function ($url, $model, $key) {
+                                return Html::a('<span class="glyphicon glyphicon-wrench"></span>', '/external/api-config/index?project_id='.$model->id, ['title' => '接口配置','class'=>'btn btn-default btn-sm'] );
                             },
                         ],
                     ],

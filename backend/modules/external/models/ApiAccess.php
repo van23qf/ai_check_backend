@@ -20,17 +20,6 @@ class ApiAccess extends \yii\db\ActiveRecord
 {
     public static $modelName = '接口权限';
 
-    /**
-     * @var string[]
-     */
-    public static $apiTags = [
-        'idcard'    =>  '身份证OCR',
-        'invoice'    =>  '增值税发票OCR',
-        'verify'    =>  '身份证二要素',
-        'compare'    =>  '人脸比对',
-        'medical_invoice'    =>  '医疗发票OCR',
-        'medical_detail'    =>  '医疗费用清单',
-    ];
 
     /**
      * {@inheritdoc}
@@ -68,7 +57,7 @@ class ApiAccess extends \yii\db\ActiveRecord
 
     public function checkUnique($attribute, $params) {
         $query = ApiAccess::find()->where(['project_id'=>$this->project_id, 'api_tag'=>$this->api_tag]);
-        if ($this->id) {
+        if (!$this->isNewRecord) {
             $query->andWhere(['<>', 'id', $this->id]);
         }
         $exist = $query->one();

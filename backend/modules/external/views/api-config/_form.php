@@ -3,11 +3,11 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\ActiveForm;
-use backend\modules\external\models\ApiAccess;
+use backend\modules\external\models\ApiConfig;
 
 
 /* @var $this yii\web\View */
-/* @var $model backend\modules\external\models\ApiAccess */
+/* @var $model backend\modules\external\models\ApiConfig */
 /* @var $form yii\widgets\ActiveForm */
 
 ?>
@@ -20,17 +20,12 @@ use backend\modules\external\models\ApiAccess;
             'labelOptions'=>['class'=>'col-sm-2 control-label'],
         ],
     ]); ?>
-    <?= Html::hiddenInput('ApiAccess[project_id]', $model->project_id) ?>
-    <?= $form->field($model, 'api_tag')->dropDownList(\backend\modules\external\models\ApiConfig::$apiTags) ?>
-    <?= $form->field($model, 'is_enabled')->dropDownList(['1' => '启用', '0'=>'关闭']) ?>
-    <?= $form->field($model, 'expired_at', ['inputOptions'=>['class'=>'form-control', 'placeholder'=>'过期时间', 'readonly'=>true]])->widget(\kartik\widgets\DateTimePicker::className(), [
-        'convertFormat' => true,
-        'type' => \kartik\widgets\DateTimePicker::TYPE_COMPONENT_PREPEND,
-        'pluginOptions' => [
-            'format' => 'yyyy-mm-dd h:ii:s',
-            //'startDate' => date('Y-m-d'),
-            'todayHighlight' => true
-        ]]) ?>
+    <?= $form->field($model, 'project')->dropDownList(ApiConfig::getProjectData()) ?>
+    <?= $form->field($model, 'api_name')->dropDownList(ApiConfig::$apiTags) ?>
+    <?= $form->field($model, 'api_provider')->dropDownList(ApiConfig::$apiProviders) ?>
+    <?= $form->field($model, 'appid')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'appsecret')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'appcode')->textInput(['maxlength' => true]) ?>
     <div class="box-footer">
         <a data-dismiss="modal" href="javascript:history.back();" class="btn btn-default">取消</a>
         <?=  Html::submitButton($model->isNewRecord ? '创建' : '更新', ['class' => $model->isNewRecord ? 'btn btn-success pull-right' : 'btn btn-primary pull-right']) ?>

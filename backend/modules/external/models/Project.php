@@ -39,6 +39,7 @@ class Project extends \yii\db\ActiveRecord
             [['app_name'], 'string', 'max' => 50],
             [['api_access'], 'string', 'max' => 128],
             [['project_name', 'secret', 'api_access', 'app_name'], 'safe'],
+            [['project_name'], 'unique'],
         ];
     }
 
