@@ -30,6 +30,7 @@ class ApiConfig extends \yii\db\ActiveRecord
         'compare'    =>  '人脸比对',
         'medical_invoice'    =>  '医疗发票OCR',
         'medical_detail'    =>  '医疗费用清单',
+        'liveness'    =>  '人脸识别',
     ];
 
     public static $apiProviders = [
