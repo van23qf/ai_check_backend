@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = '修改';
         ]) ?>
         <!-- /.btn-group -->
         <div class="pull-right">
-            <?=  Html::a('<i class="fa fa-reply"></i>', ['index'], ['class' => 'btn btn-default']) ?>
+            <?=  Html::a('<i class="fa fa-reply"></i>', ['index', 'project_id' => $project->id], ['class' => 'btn btn-default']) ?>
         </div>
     </div>
     <?= $this->render('_form', [

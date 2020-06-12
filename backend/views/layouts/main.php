@@ -39,6 +39,7 @@ if (Yii::$app->controller->action->id === 'login') {
         <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         <?php $this->head() ?>
+        <?=Html::jsFile('@web/js/layui/layui.js'); ?>
         <script>
           var AdminLTEOptions = {
             //Enable sidebar expand on hover effect for sidebar mini
