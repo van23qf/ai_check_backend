@@ -26,6 +26,7 @@ class ApiConfig extends \yii\db\ActiveRecord
     public static $apiTags = [
         'idcard'    =>  '身份证OCR',
         'invoice'    =>  '增值税发票OCR',
+        'invoice_check'    =>  '发票验真',
         'verify'    =>  '身份证二要素',
         'compare'    =>  '人脸比对',
         'medical_invoice'    =>  '医疗发票OCR',
