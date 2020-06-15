@@ -62,6 +62,9 @@ $dataProvider->pagination->pageSize= Yii::$app->config->get('backend_pagesize', 
                     ['label'=>'接口名称',  'value' => function($model){
                         return ApiConfig::$apiTags[$model->api_name];
                     }],
+                    ['label'=>'接口供应商',  'value' => function($model){
+                        return ApiConfig::$apiProviders[$model->api_provider];
+                    }],
                     'appid',
                     'appsecret',
                     'appcode',
