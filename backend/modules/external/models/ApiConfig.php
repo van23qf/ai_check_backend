@@ -120,8 +120,6 @@ class ApiConfig extends \yii\db\ActiveRecord
             'api_provider' => $this->api_provider,
         ]);
 
-        $data = $query->one();
-
         return $dataProvider;
     }
 

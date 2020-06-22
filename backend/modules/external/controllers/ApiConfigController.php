@@ -20,7 +20,7 @@ class ApiConfigController extends Controller
     public function actionIndex($project_id) {
         $project = Project::findOne($project_id);
         $searchModel = new ApiConfig();
-        $dataProvider = $searchModel->search(['ApiConfig'=>['project'=>$project->project_name]]);
+        $dataProvider = $searchModel->search(['ApiConfig'=>['project'=>$project->project_name,'api_name'=>$_GET['ApiConfig']['api_name']]]);
         $dataProvider->pagination->validatePage = true;
 
         return $this->render('index', [

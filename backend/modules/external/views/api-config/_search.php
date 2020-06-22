@@ -13,7 +13,7 @@ use backend\modules\external\models\ApiConfig;
 
     <?php $form = ActiveForm::begin([
         'method' => 'get',
-        'action' => [''],
+        'action' => ['index', 'project_id'=>$_GET['project_id']],
         'options'=>['class'=>'form-inline', 'role'=>'form'],
         'fieldConfig'=>[
             'template'=>"{label}\n{input}\n",
